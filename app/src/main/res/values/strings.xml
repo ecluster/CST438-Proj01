@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">CST438 Proj01</string>
+
+    <string name="enter_username">Enter username</string>
+    <string name="enter_password">Enter password</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create Account</string>
+    <string name="welcome_screen">Welcome Screen</string>
+    <string name="home_page">Home Page!</string>
+
     <string name="submit_btn" > Submit </string>
+
 </resources>
