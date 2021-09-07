@@ -1,12 +1,12 @@
 package com.example.cst438proj01;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId() == R.id.btnSubmit) {
             // send user to the new page
             // Change HomeActivity.class later with other branches
-            Intent i = new Intent(this, HomeActivity.class);
+            Intent i = new Intent(this, JobSearch.class);
             startActivity(i);
             Toast.makeText(this, "Log In good", Toast.LENGTH_SHORT).show();
         }
