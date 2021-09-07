@@ -20,9 +20,6 @@ public class User {
 
     }
 
-
-
-
     public int getUserId() {
         return mUserId;
     }
@@ -55,5 +52,5 @@ public class User {
         output+="UserName: " + mUserName+ "\n";
         output+="Password: " + mPassword+ "\n";
         return output;
-    }//test for fixing git2121312
+    }
 }
