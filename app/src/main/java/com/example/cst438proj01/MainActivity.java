@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mUsernameString=etUsername.getText().toString();
         mPasswordString=etPassword.getText().toString();
         if (checkForUserInDataBase() == true) {
-            if (v.getId() == R.id.btnSubmit) {
+            if (mUser.getPassword().equals(mPasswordString)) {
                 // send user to the new page
                 // Change HomeActivity.class later with other branches
                 Intent i = new Intent(this, JobSearch.class);
