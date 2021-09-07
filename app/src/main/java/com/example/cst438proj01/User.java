@@ -55,5 +55,5 @@ public class User {
         output+="UserName: " + mUserName+ "\n";
         output+="Password: " + mPassword+ "\n";
         return output;
-    }//test for fixing git
+    }//test for fixing git21
 }
