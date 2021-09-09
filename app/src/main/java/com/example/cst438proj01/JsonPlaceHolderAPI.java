@@ -25,6 +25,4 @@ import retrofit2.http.Url;
 
 public class JsonPlaceHolderAPI {
 
-
-
 }
