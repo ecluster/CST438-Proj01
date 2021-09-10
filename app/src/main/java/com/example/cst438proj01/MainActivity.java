@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mUsernameString=etUsername.getText().toString();
         mPasswordString=etPassword.getText().toString();
     }
-    private boolean checkForUserInDataBase() {
+    public boolean checkForUserInDataBase() {
         mUser =ineptDAO.getUserByUsername(mUsernameString);
         if(mUser==null){
             Toast.makeText(this, "no user " +mUsernameString+" found",Toast.LENGTH_SHORT).show();
@@ -68,11 +68,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return true;
     }
-    private void getDatabase() {
+    public void getDatabase() {
         ineptDAO = Room.databaseBuilder(this, database.class, database.USER_TABLE)
                 .allowMainThreadQueries()
                 .build()
                 .getIneptDAO();
 
     }
+    //tests to see if git config worked
+
 }
