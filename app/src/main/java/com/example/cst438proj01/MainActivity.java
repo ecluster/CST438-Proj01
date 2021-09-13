@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Send user to create account page
             Intent i = new Intent(this, CreateAcc.class);
             startActivity(i);
-r
+
         }
     }
     private void getValuesFromDisplay() {
