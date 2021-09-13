@@ -1,10 +1,14 @@
 package com.example.cst438proj01;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Job {
 
     private String positionTitle;
     private String positionSchedule;
     private String jobCategory;
+    @SerializedName("SearchResult")
+    private SearchResult searchResult;
 
     public Job(String positionTitle, String positionSchedule, String jobCategory) {
         this.positionTitle = positionTitle;
@@ -12,8 +16,12 @@ public class Job {
         this.jobCategory = jobCategory;
     }
 
-    public String getPositionTitle() {
-        return positionTitle;
+    public String getPositionTitle(int i) {
+        return searchResult.getSearchResultItems().get(i).getMatchedObjectDescriptor().getPositionTitle();
+    }
+
+    public String getPositionId(int i) {
+        return searchResult.getSearchResultItems().get(i).getMatchedObjectDescriptor().getPositionID();
     }
 
     public String getPositionSchedule() {
@@ -30,6 +38,10 @@ public class Job {
 
     public void setPositionSchedule(String positionSchedule) {
         this.positionSchedule = positionSchedule;
+    }
+
+    public SearchResult getSearchResult() {
+        return searchResult;
     }
 
     public void setJobCategory(String jobCategory) {
