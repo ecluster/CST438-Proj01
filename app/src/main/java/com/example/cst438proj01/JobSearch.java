@@ -19,7 +19,6 @@ public class JobSearch extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);
-
         View submitBtn = findViewById(R.id.submit_btn);
         submitBtn.setOnClickListener(this);
     }

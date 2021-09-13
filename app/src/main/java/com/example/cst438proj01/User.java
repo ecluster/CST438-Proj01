@@ -17,7 +17,6 @@ public class User {
     public User(String mUserName, String mPassword ) {
         this.mUserName = mUserName;
         this.mPassword = mPassword;
-
     }
 
     public int getUserId() {
@@ -43,7 +42,6 @@ public class User {
     public void setPassword(String mPassword) {
         this.mPassword = mPassword;
     }
-
 
     @Override
     public String toString() {
