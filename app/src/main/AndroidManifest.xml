@@ -19,9 +19,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".HomeActivity"> </activity>
+        <activity android:name=".JobSearch" > </activity>
+        <activity android:name=".CreateAcc" > </activity>
 
-        <activity android:name=".JobSearch" />
 
     </application>
 

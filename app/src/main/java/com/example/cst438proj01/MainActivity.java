@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         btnSubmit.setOnClickListener(this);
+        btnCreatAcc.setOnClickListener(this);
+
     }
 
     public void onClick(View v) {
@@ -48,11 +50,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
       /*  if (v.getId() == R.id.btnSubmit) {
             // send user to the new page
-            // Change HomeActivity.class later with other branches
             Intent i = new Intent(this, JobSearch.class);
             startActivity(i);
             Toast.makeText(this, "Log In good", Toast.LENGTH_SHORT).show();
         }*/
+        }
+        if(v.getId() == R.id.btnCreateAcc){
+            //Send user to create account page
+            Intent i = new Intent(this, CreateAcc.class);
+            startActivity(i);
         }
     }
     private void getValuesFromDisplay() {
