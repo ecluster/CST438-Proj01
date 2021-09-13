@@ -1,26 +1,31 @@
 package com.example.cst438proj01;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+
 public class JobSearch extends AppCompatActivity implements View.OnClickListener {
+    private UserDAO ineptDAO;
+    private String mUsernameString;
+    private User mUser;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);
+        getDatabase();
+        checkForUser();
+        mUser=ineptDAO.getUserByUsername(mUsernameString);
         View submitBtn = findViewById(R.id.submit_btn);
         submitBtn.setOnClickListener(this);
+        Toast.makeText(this, "User " +mUser.getUserName()+" found",Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -32,5 +37,15 @@ public class JobSearch extends AppCompatActivity implements View.OnClickListener
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
         }
+    }
+    public void getDatabase() {
+        ineptDAO = Room.databaseBuilder(this, database.class, database.USER_TABLE)
+                .allowMainThreadQueries()
+                .build()
+                .getIneptDAO();
+
+    }
+    private void checkForUser() {
+        mUsernameString= getIntent().getStringExtra("UserID");
     }
 }

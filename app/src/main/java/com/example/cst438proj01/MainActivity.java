@@ -27,9 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
 
-            User defaultUser=new User("testuser1","testuser1");
-            User altUser=new User("admin2","admin2");
-            ineptDAO.insert(defaultUser,altUser);
 
 
 
@@ -39,13 +36,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View v) {
-        mUsernameString=etUsername.getText().toString();
-        mPasswordString=etPassword.getText().toString();
+        getValuesFromDisplay();
         if (checkForUserInDataBase() == true) {
-            if (mUser.getPassword().equals(mPasswordString)) {
+            if (!validatePassword()) {
+                Toast.makeText(MainActivity.this, "Invalid password", Toast.LENGTH_SHORT).show();
+            }else{
                 // send user to the new page
                 // Change HomeActivity.class later with other branches
                 Intent i = new Intent(this, JobSearch.class);
+                i.putExtra("UserID", mUser.getUserName());
                 startActivity(i);
                 Toast.makeText(this, "Log In good", Toast.LENGTH_SHORT).show();
             }
@@ -66,7 +65,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mUsernameString=etUsername.getText().toString();
         mPasswordString=etPassword.getText().toString();
     }
-    private boolean checkForUserInDataBase() {
+    private boolean validatePassword(){
+        return mUser.getPassword().equals(mPasswordString);
+    }
+    public boolean checkForUserInDataBase() {
         mUser =ineptDAO.getUserByUsername(mUsernameString);
         if(mUser==null){
             Toast.makeText(this, "no user " +mUsernameString+" found",Toast.LENGTH_SHORT).show();
@@ -74,11 +76,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return true;
     }
-    private void getDatabase() {
+    public void getDatabase() {
         ineptDAO = Room.databaseBuilder(this, database.class, database.USER_TABLE)
                 .allowMainThreadQueries()
                 .build()
                 .getIneptDAO();
 
     }
+    //tests to see if git config worked
+
 }
