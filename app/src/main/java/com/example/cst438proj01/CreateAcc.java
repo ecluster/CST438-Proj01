@@ -5,6 +5,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,8 +49,6 @@ public class CreateAcc extends AppCompatActivity implements View.OnClickListener
                 Toast.makeText(this, "Username empty",Toast.LENGTH_SHORT).show();
             } else if(!isUsernameEmpty(username) && isPasswordEmpty(password)){
                 Toast.makeText(this, "Password empty",Toast.LENGTH_SHORT).show();
-            } else if(isUsernameEmpty(username) && isPasswordEmpty(password)){
-                Toast.makeText(this, "Username and password empty",Toast.LENGTH_SHORT).show();
             } else if(!isUsernameEmpty(username) && !isPasswordEmpty(password)){
                 if(!checkForUserInDataBase()){
                     Toast.makeText(getApplicationContext(),"Inavlid username",Toast.LENGTH_SHORT).show();
@@ -59,11 +58,12 @@ public class CreateAcc extends AppCompatActivity implements View.OnClickListener
                     user.setPassword(password);
                     mUserDAO.insert(user);
                     Toast.makeText(getApplicationContext(),"User registered",Toast.LENGTH_SHORT).show();
-
                     Intent i = new Intent(this, MainActivity.class);
                     startActivity(i);
                 }
             }
+        } else{
+            Toast.makeText(this, "Username and password empty",Toast.LENGTH_SHORT).show();
         }
     }
 
