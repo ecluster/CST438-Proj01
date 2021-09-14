@@ -17,11 +17,7 @@ public class User {
     public User(String mUserName, String mPassword ) {
         this.mUserName = mUserName;
         this.mPassword = mPassword;
-
     }
-
-
-
 
     public int getUserId() {
         return mUserId;
@@ -47,7 +43,6 @@ public class User {
         this.mPassword = mPassword;
     }
 
-
     @Override
     public String toString() {
         String output;
@@ -55,5 +50,5 @@ public class User {
         output+="UserName: " + mUserName+ "\n";
         output+="Password: " + mPassword+ "\n";
         return output;
-    }//test for fixing git2121312
+    }
 }

@@ -8,6 +8,6 @@
     <string name="welcome_screen">Welcome Screen</string>
     <string name="home_page">Home Page!</string>
 
-    <string name="submit_btn" > Submit </string>
+    <string name="submit_btn">Submit</string>
 
 </resources>
