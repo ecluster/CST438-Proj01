@@ -29,5 +29,9 @@ public interface JsonPlaceHolderAPI {
             "Authorization-Key: "
     })
     @GET("search")
-    Call<Job> getJob(@Query("Keyword") String keyword);
+    Call<Job> getJob(
+            @Query("Keyword") String keyword,
+            @Query("LocationName") String locationName);
+
+
 }

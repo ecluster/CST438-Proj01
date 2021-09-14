@@ -40,7 +40,7 @@ public class TempActivity extends AppCompatActivity {
     }
 
     private void getJobs() {
-        Call<Job> call = jsonPlaceHolderAPI.getJob("software");
+        Call<Job> call = jsonPlaceHolderAPI.getJob("Software engineer", "");
 
         call.enqueue(new Callback<Job>() {
             @Override
@@ -53,7 +53,8 @@ public class TempActivity extends AppCompatActivity {
                 for (int i = 0; i < 10; i++) {
                     String content = "";
                     content += "Job ID: " + response.body().getPositionId(i) + "\n";
-                    content += "Job Title: " + response.body().getPositionTitle(i) + "\n\n";
+                    content += "Job Title: " + response.body().getPositionTitle(i) + "\n";
+                    content += "Location Name: " + response.body().getLocationName(i) + "\n\n";
                     tvResult.append(content);
                 }
 
