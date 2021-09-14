@@ -46,7 +46,7 @@ public class User {
     @Override
     public String toString() {
         String output;
-        output= "UserId:" + mUserId + "\n";;
+        output= "UserId:" + mUserId + "\n";
         output+="UserName: " + mUserName+ "\n";
         output+="Password: " + mPassword+ "\n";
         return output;
