@@ -28,6 +28,7 @@
 
         <activity android:name=".TempActivity" />
         <activity android:name=".HirePathActivity" />
+        <activity android:name=".PositionScheduleActivity" />
 
     </application>
 

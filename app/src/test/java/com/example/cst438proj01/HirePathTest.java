@@ -9,7 +9,7 @@ import java.util.List;
 public class HirePathTest {
 
     @Test
-    public void getHirePathValue () {
+    public void getHirePathValue() {
         int i = 0;
         ValidValue validValue = new ValidValue();
         validValue.setValue("test1");
@@ -28,7 +28,7 @@ public class HirePathTest {
     }
 
     @Test
-    public void getHirePathCode () {
+    public void getHirePathCode() {
         int i = 0;
         ValidValue validValue = new ValidValue();
         validValue.setCode("test1");
