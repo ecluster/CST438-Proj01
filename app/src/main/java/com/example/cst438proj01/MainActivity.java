@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText etUsername;
     private EditText etPassword;
     private UserDAO ineptDAO;
+    View btnHirePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +35,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etPassword = findViewById(R.id.etPassword);
 
 
-
+        btnHirePath = findViewById(R.id.btnHirePath);
 
         btnSubmit.setOnClickListener(this);
         btnCreatAcc.setOnClickListener(this);
         btnTemp.setOnClickListener(this);
+        btnHirePath.setOnClickListener(this);
 
     }
 
@@ -73,6 +75,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this, TempActivity.class);
             startActivity(i);
             Toast.makeText(this, "Going to temp", Toast.LENGTH_SHORT).show();
+        } else if (v.getId() == R.id.btnHirePath) {
+            Intent i = new Intent(this, HirePathActivity.class);
+            startActivity(i);
+            Toast.makeText(this, "Going to Hire Paths", Toast.LENGTH_SHORT).show();
         }
     }
     private void getValuesFromDisplay() {
