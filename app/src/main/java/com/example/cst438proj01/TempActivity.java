@@ -39,30 +39,31 @@ public class TempActivity extends AppCompatActivity {
         //getJobs();
     }
 
-//    private void getJobs() {
-//        Call<Job> call = jsonPlaceHolderAPI.getJob("software");
-//
-//        call.enqueue(new Callback<Job>() {
-//            @Override
-//            public void onResponse(Call<Job> call, Response<Job> response) {
-//                if (!response.isSuccessful()) {
-//                    tvResult.setText("Code: " + response.code());
-//                    return;
-//                }
-//
-//                for (int i = 0; i < 10; i++) {
-//                    String content = "";
-//                    content += "Job ID: " + response.body().getPositionId(i) + "\n";
-//                    content += "Job Title: " + response.body().getPositionTitle(i) + "\n\n";
-//                    tvResult.append(content);
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Job> call, Throwable t) {
-//                tvResult.setText("OnFailure: " + t.getMessage());
-//            }
-//        });
-//    }
+    private void getJobs() {
+        Call<Job> call = jsonPlaceHolderAPI.getJob("Software engineer", "");
+
+        call.enqueue(new Callback<Job>() {
+            @Override
+            public void onResponse(Call<Job> call, Response<Job> response) {
+                if (!response.isSuccessful()) {
+                    tvResult.setText("Code: " + response.code());
+                    return;
+                }
+
+                for (int i = 0; i < 10; i++) {
+                    String content = "";
+                    content += "Job ID: " + response.body().getPositionId(i) + "\n";
+                    content += "Job Title: " + response.body().getPositionTitle(i) + "\n";
+                    content += "Location Name: " + response.body().getLocationName(i) + "\n\n";
+                    tvResult.append(content);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Job> call, Throwable t) {
+                tvResult.setText("OnFailure: " + t.getMessage());
+            }
+        });
+    }
 }

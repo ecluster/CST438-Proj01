@@ -29,6 +29,7 @@ public class JobSearch extends AppCompatActivity implements View.OnClickListener
     private UserDAO ineptDAO;
     private String mUsernameString;
     private User mUser;
+    View btnLogout;
     EditText cin_job;
     private String job;
     private TextView tvResult;
@@ -48,7 +49,10 @@ public class JobSearch extends AppCompatActivity implements View.OnClickListener
         checkForUser();
         mUser=ineptDAO.getUserByUsername(mUsernameString);
         View submitBtn = findViewById(R.id.submit_btn);
+        btnLogout = findViewById(R.id.btnLogout);
         submitBtn.setOnClickListener(this);
+        btnLogout.setOnClickListener(this);
+      
         //Toast.makeText(this, "User " +mUser.getUserName()+" found",Toast.LENGTH_SHORT).show();
 
         //tvResult = findViewById(R.id.tvResult);
@@ -76,7 +80,9 @@ public class JobSearch extends AppCompatActivity implements View.OnClickListener
         job = "" + cin_job.getText().toString();
 
         if(v.getId() == R.id.submit_btn){
-            getJobs();
+            //getJobs();
+        } else if (v.getId() == R.id.btnLogout) {
+            finish();
         }
     }
 

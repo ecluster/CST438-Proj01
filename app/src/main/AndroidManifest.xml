@@ -26,6 +26,8 @@
         <activity android:name=".CreateAcc" > </activity>
 
         <activity android:name=".TempActivity" />
+        <activity android:name=".HirePathActivity" />
+        <activity android:name=".PositionScheduleActivity" />
 
     </application>
 
