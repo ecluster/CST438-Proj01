@@ -80,43 +80,13 @@ public class JobSearch extends AppCompatActivity implements View.OnClickListener
         job = "" + cin_job.getText().toString();
 
         if(v.getId() == R.id.submit_btn){
-            //getJobs();
+            Intent i = new Intent(this, TempActivity.class);
+            i.putExtra("job",job);
+            startActivity(i);
         } else if (v.getId() == R.id.btnLogout) {
             finish();
         }
     }
-
-    private void getJobs() {
-        Call<List<Job>> call = jsonPlaceHolderAPI.getJob(job);
-
-        call.enqueue(new Callback<List<Job>>() {
-            @Override
-            public void onResponse(Call<List<Job>> call, Response<List<Job>> response) {
-                call.enqueue(new Callback<List<Job>>() {
-                    @Override
-                    public void onResponse(Call<List<Job>> call, Response<List<Job>> response) {
-                        jobList = response.body();
-                        Log.d("TAG","Response = "+jobList);
-                        jobAdapter.setJobList(jobList);
-                    }
-
-                    @Override
-                    public void onFailure(Call<List<Job>> call, Throwable t) {
-                        Log.d("TAG","Response = "+t.toString());
-                    }
-                });
-
-            }
-
-            @Override
-            public void onFailure(Call<List<Job>> call, Throwable t) {
-                tvResult.setText("OnFailure: " + t.getMessage());
-            }
-        });
-    }
-
-
-
 
     public void getDatabase() {
         ineptDAO = Room.databaseBuilder(this, database.class, database.USER_TABLE)
