@@ -3,12 +3,7 @@ package com.example.cst438proj01;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.gson.JsonArray;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
