@@ -12,7 +12,7 @@ public class JobSearch extends AppCompatActivity implements View.OnClickListener
     private UserDAO ineptDAO;
     private String mUsernameString;
     private User mUser;
-
+    View btnLogout;
 
 
     @Override
@@ -23,7 +23,9 @@ public class JobSearch extends AppCompatActivity implements View.OnClickListener
         checkForUser();
         mUser=ineptDAO.getUserByUsername(mUsernameString);
         View submitBtn = findViewById(R.id.submit_btn);
+        btnLogout = findViewById(R.id.btnLogout);
         submitBtn.setOnClickListener(this);
+        btnLogout.setOnClickListener(this);
         //Toast.makeText(this, "User " +mUser.getUserName()+" found",Toast.LENGTH_SHORT).show();
     }
 
@@ -35,6 +37,8 @@ public class JobSearch extends AppCompatActivity implements View.OnClickListener
         if(v.getId() == R.id.submit_btn){
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
+        } else if (v.getId() == R.id.btnLogout) {
+            finish();
         }
     }
     public void getDatabase() {
