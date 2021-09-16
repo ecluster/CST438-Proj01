@@ -26,8 +26,8 @@ public interface JsonPlaceHolderAPI {
     // seach for jobs
     @Headers({
             "Host: data.usajobs.gov",
-            "User-Agent: ",
-            "Authorization-Key: "
+            "User-Agent: ecluster@csumb.edu",
+            "Authorization-Key: 6Qlpg4hAKcCLw4ZmZO1cEmRnEiGIAZJGpq1cPz1YPwY="
     })
     @GET("search")
     Call<Job> getJob(
