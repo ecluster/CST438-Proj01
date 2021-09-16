@@ -7,8 +7,13 @@ public class Job {
     private String positionTitle;
     private String positionSchedule;
     private String jobCategory;
+
     @SerializedName("SearchResult")
     private SearchResult searchResult;
+
+    public Job(){
+
+    }
 
     public Job(String positionTitle, String positionSchedule, String jobCategory) {
         this.positionTitle = positionTitle;
