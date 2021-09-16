@@ -23,6 +23,7 @@ import retrofit2.http.Url;
 
 public interface JsonPlaceHolderAPI {
 
+    // seach for jobs
     @Headers({
             "Host: data.usajobs.gov",
             "User-Agent: ",
@@ -33,5 +34,11 @@ public interface JsonPlaceHolderAPI {
             @Query("Keyword") String keyword,
             @Query("LocationName") String locationName);
 
+    // get hiring paths for all jobs
+    @GET("codelist/hiringpaths")
+    Call<HirePath> getHirePath();
 
+    // get job schedules for all jobs (part-time, full-time, ect...)
+    @GET("codelist/positionscheduletypes")
+    Call<PositionSchedule> getPositionSchedule();
 }
