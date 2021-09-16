@@ -41,4 +41,5 @@ public interface JsonPlaceHolderAPI {
     // get job schedules for all jobs (part-time, full-time, ect...)
     @GET("codelist/positionscheduletypes")
     Call<PositionSchedule> getPositionSchedule();
+    //Call<List<Job>> getJob(@Query("Keyword") String keyword);
 }

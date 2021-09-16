@@ -8,6 +8,7 @@ public class Job {
     private String positionTitle;
     private String positionId;
     private String positionLocation;
+  
     @SerializedName("SearchResult")
     private SearchResult searchResult;
 

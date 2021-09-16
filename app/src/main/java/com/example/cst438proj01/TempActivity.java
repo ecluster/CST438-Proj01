@@ -36,7 +36,7 @@ public class TempActivity extends AppCompatActivity {
 
         jsonPlaceHolderAPI = retrofit.create(JsonPlaceHolderAPI.class);
 
-        getJobs();
+        //getJobs();
     }
 
     private void getJobs() {
