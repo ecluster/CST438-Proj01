@@ -52,8 +52,8 @@ public class TempActivity extends AppCompatActivity {
 
                 for (int i = 0; i < 10; i++) {
                     String content = "";
-                    content += "Job ID: " + response.body().getPositionId(i) + "\n";
                     content += "Job Title: " + response.body().getPositionTitle(i) + "\n";
+                    content += "Job ID: " + response.body().getPositionId(i) + "\n";
                     content += "Location Name: " + response.body().getLocationName(i) + "\n\n";
                     tvResult.append(content);
                 }

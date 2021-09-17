@@ -40,7 +40,7 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
             name = etName.getText().toString();
             mUser.setUserName(name);
             ineptDAO.update(mUser);
-            Toast.makeText(this, "Profile name updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Username updated", Toast.LENGTH_SHORT).show();
            finish();
         }
     }
