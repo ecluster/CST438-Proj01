@@ -37,4 +37,25 @@ public class CreateAccTest {
         assertEquals(true, CreateAcc.hasInput(username, password));
     }
 
+    @Test
+    public void hasNoInput() {
+        String u = "";
+        String p = "";
+        assertEquals(false, CreateAcc.hasInput(u, p));
+    }
+
+    @Test
+    public void hasSomeInputWithUsername() {
+        String u = "test";
+        String p = "";
+        assertEquals(true, CreateAcc.hasInput(u, p));
+    }
+
+    @Test
+    public void hasSomeInputWithPassword() {
+        String u = "";
+        String p = "test";
+        assertEquals(true, CreateAcc.hasInput(u, p));
+    }
+
 }
