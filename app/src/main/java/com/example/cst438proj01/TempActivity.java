@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class TempActivity extends AppCompatActivity {
 
     private TextView tvResult;
-
+    String jobs;
     private JsonPlaceHolderAPI jsonPlaceHolderAPI;
 
     @Override
@@ -23,6 +23,7 @@ public class TempActivity extends AppCompatActivity {
         setContentView(R.layout.activity_temp);
 
         tvResult = findViewById(R.id.tvResult);
+        checkJob();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://data.usajobs.gov/api/")
@@ -30,12 +31,16 @@ public class TempActivity extends AppCompatActivity {
                 .build();
 
         jsonPlaceHolderAPI = retrofit.create(JsonPlaceHolderAPI.class);
-
         getJobs();
     }
 
+    private void checkJob(){
+        jobs = getIntent().getStringExtra("job");
+
+    }
+
     private void getJobs() {
-        Call<Job> call = jsonPlaceHolderAPI.getJob("software");
+        Call<Job> call = jsonPlaceHolderAPI.getJob(jobs, "");
 
         call.enqueue(new Callback<Job>() {
             @Override
@@ -48,7 +53,8 @@ public class TempActivity extends AppCompatActivity {
                 for (int i = 0; i < 10; i++) {
                     String content = "";
                     content += "Job ID: " + response.body().getPositionId(i) + "\n";
-                    content += "Job Title: " + response.body().getPositionTitle(i) + "\n\n";
+                    content += "Job Title: " + response.body().getPositionTitle(i) + "\n";
+                    content += "Location Name: " + response.body().getLocationName(i) + "\n\n";
                     tvResult.append(content);
                 }
 
