@@ -7,6 +7,9 @@
     <string name="create_account">Create Account</string>
     <string name="welcome_screen">Welcome Screen</string>
     <string name="home_page">Home Page!</string>
+    <string name="change_user">Edit username</string>
+    <string name="btn_change">Done</string>
+
 
     <string name="submit_btn">Submit</string>
 
