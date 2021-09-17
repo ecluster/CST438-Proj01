@@ -13,6 +13,8 @@ public interface UserDAO {
     @Insert
     void insert(User... users);
 
+
+
     @Update
     void update(User... users);
 
@@ -30,6 +32,8 @@ public interface UserDAO {
 
     @Query(" SELECT * FROM " + database.USER_TABLE + "  WHERE mUserId= :userId")
     User getUserByUserId(int userId);
+
+
 }
 
 

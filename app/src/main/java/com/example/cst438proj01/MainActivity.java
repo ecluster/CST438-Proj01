@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private String mUsernameString;
     private String mPasswordString;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getDatabase();
+        populateDB();
         View btnSubmit = findViewById(R.id.btnSubmit);
         View btnCreatAcc = findViewById(R.id.btnCreateAcc);
 
@@ -47,22 +50,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void populateDB() {
+        List<User>user=ineptDAO.ineptGetAllUsers();
+        if(user.size()<=1){
+            ineptDAO.insert(new User("testuser1","testuser1"));
+            ineptDAO.insert(new User("admin2","admin2"));
+        }
+    }
+
     public void onClick(View v) {
         getValuesFromDisplay();
         if (checkForUserInDataBase() == true) {
             if (!validatePassword()) {
                 Toast.makeText(MainActivity.this, "Invalid password", Toast.LENGTH_SHORT).show();
-            }else{
-                // send user to the new page
-                // Change HomeActivity.class later with other branches
-                Intent i = new Intent(this, JobSearch.class);
-                i.putExtra("UserID", mUser.getUserName());
-                startActivity(i);
-                Toast.makeText(this, "Log In good", Toast.LENGTH_SHORT).show();
-            }
-             if (v.getId() == R.id.btnSubmit) {
+            }else if (v.getId() == R.id.btnSubmit) {
                 // send user to the new page
                 Intent i = new Intent(this, JobSearch.class);
+                i.putExtra("username",mUser.getUserName());
                 startActivity(i);
                 Toast.makeText(this, "Log In good", Toast.LENGTH_SHORT).show();
 

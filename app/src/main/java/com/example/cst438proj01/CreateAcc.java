@@ -24,6 +24,8 @@ public class CreateAcc extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_create);
         btnCreatAcc = findViewById(R.id.btnCreateAcc);
         btnCreatAcc.setOnClickListener(this);
+        etUsername = findViewById(R.id.etUsername);
+        etPassword = findViewById(R.id.etPassword);
         getDatabase();
     }
 
@@ -35,8 +37,7 @@ public class CreateAcc extends AppCompatActivity implements View.OnClickListener
     }
 
     public void onClick(View v) {
-        etUsername = findViewById(R.id.etUsername);
-        etPassword = findViewById(R.id.etPassword);
+
 
         username = etUsername.getText().toString();
         password = etPassword.getText().toString();

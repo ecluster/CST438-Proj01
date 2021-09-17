@@ -1,44 +1,24 @@
 package com.example.cst438proj01;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import androidx.lifecycle.Observer;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.content.Context;
-
-import android.content.Intent;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class JobSearch extends AppCompatActivity implements View.OnClickListener {
     private UserDAO ineptDAO;
     private String mUsernameString;
-    private User mUser;
     View btnLogout;
+    View btnUser;
+    View submitBtn;
+    private User mUser;
     EditText cin_job;
     private String job;
-    private TextView tvResult;
-    private JsonPlaceHolderAPI jsonPlaceHolderAPI;
 
-
-    List<Job> jobList;
-    private JobAdapter jobAdapter;
-    private RecyclerView recyclerView;
 
 
     @Override
@@ -47,31 +27,19 @@ public class JobSearch extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_job);
         getDatabase();
         checkForUser();
-        mUser=ineptDAO.getUserByUsername(mUsernameString);
-        View submitBtn = findViewById(R.id.submit_btn);
-        btnLogout = findViewById(R.id.btnLogout);
+        mUsernameString=getIntent().getStringExtra("username");
+        submitBtn = findViewById(R.id.submit_btn);
         submitBtn.setOnClickListener(this);
+        btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(this);
-      
-        //Toast.makeText(this, "User " +mUser.getUserName()+" found",Toast.LENGTH_SHORT).show();
 
-        //tvResult = findViewById(R.id.tvResult);
+        btnUser = findViewById(R.id.btnUser);
+        btnUser.setOnClickListener(this);
+        mUser=ineptDAO.getUserByUsername(mUsernameString);
+        Toast.makeText(this, "User " +mUser.getUserName()+" found", Toast.LENGTH_SHORT).show();
 
-        jobList = new ArrayList<>();
-        recyclerView = findViewById(R.id.recyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        jobAdapter = new JobAdapter(getApplicationContext(),jobList);
-        recyclerView.setAdapter(jobAdapter);
-
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://data.usajobs.gov/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        jsonPlaceHolderAPI = retrofit.create(JsonPlaceHolderAPI.class);
-
+        //mUser.setUserName("testuser1");
+        //ineptDAO.update(mUser);
     }
 
     @Override
@@ -83,8 +51,13 @@ public class JobSearch extends AppCompatActivity implements View.OnClickListener
             Intent i = new Intent(this, TempActivity.class);
             i.putExtra("job",job);
             startActivity(i);
-        } else if (v.getId() == R.id.btnLogout) {
+        }  if (v.getId() == R.id.btnLogout) {
             finish();
+        }  if (v.getId() == R.id.btnUser){
+            //Toast.makeText(this, "User " +mUser.getUserName()+" found", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, UserProfile.class);
+            i.putExtra("username",mUser.getUserName());
+            startActivity(i);
         }
     }
 
