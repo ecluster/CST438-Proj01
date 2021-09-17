@@ -47,4 +47,16 @@
         android:layout_height="wrap_content"
         android:text="temp"/>
 
+    <Button
+        android:id="@+id/btnHirePath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hire Paths"/>
+
+    <Button
+        android:id="@+id/btnPositionSchedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Position Schedules"/>
+
 </LinearLayout>
