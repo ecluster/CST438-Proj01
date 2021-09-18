@@ -21,6 +21,11 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
 
+/**
+ * JsonPlaceHolderAPI --- Interface to set up endpoints with REST and Retrofit
+ * @author    Edward Cluster
+ */
+
 public interface JsonPlaceHolderAPI {
 
     // seach for jobs

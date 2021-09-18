@@ -11,12 +11,21 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * TempActivity --- program to display the search result for jobs
+ * @author    Edward Cluster and Jamie Maniulit
+ */
+
 public class TempActivity extends AppCompatActivity {
 
     private TextView tvResult;
     String jobs;
     private JsonPlaceHolderAPI jsonPlaceHolderAPI;
 
+    /**
+     * create the activity to display job search results
+     * @param savedInstanceState A Bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +48,9 @@ public class TempActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * get the jobs based on search from user input
+     */
     private void getJobs() {
         Call<Job> call = jsonPlaceHolderAPI.getJob(jobs, "");
 

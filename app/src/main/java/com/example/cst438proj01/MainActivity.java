@@ -11,6 +11,11 @@ import androidx.room.Room;
 
 import java.util.List;
 
+/**
+ * MainActivity --- program to let the user login
+ * @author    Edward Cluster, Jamie Maniulit, Dylan Hill
+ */
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private String mUsernameString;
     private String mPasswordString;
@@ -58,6 +63,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Switch to a page corresponding page to what the user clicks on
+     * @param v View
+     */
     public void onClick(View v) {
         getValuesFromDisplay();
         if (checkForUserInDataBase() == true) {

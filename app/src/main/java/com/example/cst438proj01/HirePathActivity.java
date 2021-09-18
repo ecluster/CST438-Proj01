@@ -12,11 +12,20 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * HirePathActivity --- program to display all hiring paths
+ * @author    Edward Cluster
+ */
+
 public class HirePathActivity extends AppCompatActivity {
 
     private TextView tvPaths;
     private JsonPlaceHolderAPI jsonPlaceHolderAPI;
 
+    /**
+     * create the activity to display hiring path results
+     * @param savedInstanceState A Bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +43,9 @@ public class HirePathActivity extends AppCompatActivity {
         getHirePaths();
     }
 
+    /**
+     * Get the hiring paths from api endpoint
+     */
     private void getHirePaths() {
         Call<HirePath> call = jsonPlaceHolderAPI.getHirePath();
         call.enqueue(new Callback<HirePath>() {
