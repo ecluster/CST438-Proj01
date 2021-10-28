@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else if (v.getId() == R.id.btnSubmit) {
                 // send user to the new page
                 Intent i = new Intent(this, JobSearch.class);
+                System.out.println("Comment");
                 i.putExtra("username",mUser.getUserName());
                 startActivity(i);
                 Toast.makeText(this, "Log In good", Toast.LENGTH_SHORT).show();
